@@ -1,9 +1,12 @@
 package com.example.curdapi.employeeController;
 
 import com.example.curdapi.employeeService.UserService;
+import com.example.curdapi.employeeService.empServicesImpl.UserServiceImpl;
 import com.example.curdapi.entity.Users;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "http://localhost:4200/" )
@@ -24,5 +27,6 @@ public class UserController {
     Users userLogin(@RequestBody Users users)throws Exception{
         return userService.userLogin(users);
     }
+
 
 }

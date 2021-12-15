@@ -23,9 +23,10 @@ public class UserServiceImpl implements UserService {
         String tempName = users.getUsername();
         String tempPassword = users.getPassword();
 
-        Users userObj = null;
+        Users userObj =null;
         if(tempName != null & tempPassword != null){
             userObj = FetchUser(tempName,tempPassword);
+
         }if(userObj ==null){
             throw new Exception("Bad");
         }
@@ -35,4 +36,5 @@ public class UserServiceImpl implements UserService {
     public Users FetchUser(String username,String password){
         return userRepository.findByUsernameAndPassword( username , password);
     }
+
 }
