@@ -33,6 +33,10 @@ public class EmployeeController {
     public List<Employee> showEmployee(){
      return empServices.showEmployee();
     }
+    @GetMapping("/show")
+    public ResponseEntity showAbove25() throws Exception{
+        return ResponseEntity.ok(empServices.showIntern());
+    }
 
     @GetMapping("/list/{id}")
     public ResponseEntity<Employee> getEmpById(@PathVariable Integer id){

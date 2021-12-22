@@ -1,5 +1,6 @@
 package com.example.curdapi.employeeService.empServicesImpl;
 
+import com.example.curdapi.dto.EmployeeDto;
 import com.example.curdapi.employeeService.EmpServices;
 import com.example.curdapi.entity.Employee;
 import com.example.curdapi.repository.EmpRepository;
@@ -9,6 +10,7 @@ import org.springframework.boot.context.config.ConfigDataResourceNotFoundExcepti
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -30,6 +32,20 @@ public class EmpServiceImpl implements EmpServices {
     public List<Employee> showEmployee() {
         return empRepository.findAll();
 
+    }
+
+    @Override
+    public List<Employee> showIntern()  {
+        List<Employee> n = empRepository.findAll();
+
+        ArrayList<Employee> emp = new ArrayList<>();
+
+        for(Employee mal:n ){
+            if(Integer.parseInt(mal.getAge()) <= 26  ){
+                emp.add(mal);
+            }
+        }
+        return emp;
     }
 
 //    @Override
